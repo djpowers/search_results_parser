@@ -1,0 +1,22 @@
+<h3>Search Terms: "<%= @search_query.terms %>"</h3>
+<h4>Ran at: <%= @search_query.created_at %></h4>
+
+<table class="ads">
+  <thead>
+    <tr>
+      <th>Headline</th>
+      <th>URL</th>
+      <th>Copy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @search_query.ads.each do |ad| %>
+      <tr>
+        <td><%= ad.headline %></td>
+        <td><%= ad.url %></td>
+        <td><%= ad.copy %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
