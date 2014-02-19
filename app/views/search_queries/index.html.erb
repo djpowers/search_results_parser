@@ -7,7 +7,7 @@
   </thead>
 
   <tbody>
-    <% @search_queries..each do |query| %>
+    <% @search_queries.each do |query| %>
       <tr>
         <td><%= link_to "#{query.terms}", search_query_path(query) %></td>
         <td><%= SearchQuery.where(terms: query.terms).count %></td>

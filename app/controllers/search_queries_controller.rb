@@ -5,7 +5,7 @@ class SearchQueriesController < ApplicationController
   end
 
   def create
-    @search_query = SearchQuery.new(search_query_params)
+    @search_query = SearchQuery.find_or_create_by(search_query_params)
 
     if @search_query.save
       @result_group = ResultGroup.create(search_query: @search_query)
@@ -22,6 +22,10 @@ class SearchQueriesController < ApplicationController
 
   def show
     @search_query = SearchQuery.find(params[:id])
+  end
+
+  def index
+    @search_queries = SearchQuery.all
   end
 
   private
