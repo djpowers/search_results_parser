@@ -5,8 +5,8 @@ describe SearchQuery do
   describe 'validations' do
     it { should validate_presence_of :terms }
 
-    it { should have_many(:search_ads).dependent(:destroy) }
-    it { should have_many(:ads).through(:search_ads) }
+    it { should have_many(:result_groups).dependent(:destroy) }
+    it { should have_many(:ad_results).through(:result_groups) }
   end
 
   describe 'database' do

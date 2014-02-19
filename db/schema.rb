@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217223502) do
+ActiveRecord::Schema.define(version: 20140219213740) do
+
+  create_table "ad_results", force: true do |t|
+    t.integer  "ad_id",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "result_group_id", null: false
+  end
 
   create_table "ads", force: true do |t|
     t.string   "headline",   null: false
@@ -21,9 +28,8 @@ ActiveRecord::Schema.define(version: 20140217223502) do
     t.datetime "updated_at"
   end
 
-  create_table "search_ads", force: true do |t|
+  create_table "result_groups", force: true do |t|
     t.integer  "search_query_id", null: false
-    t.integer  "ad_id",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

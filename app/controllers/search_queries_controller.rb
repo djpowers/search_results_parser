@@ -8,10 +8,11 @@ class SearchQueriesController < ApplicationController
     @search_query = SearchQuery.new(search_query_params)
 
     if @search_query.save
+      @result_group = ResultGroup.create(search_query: @search_query)
       @search_query.parse_ads.each do |ad|
         returned_ad = Ad.find_or_create_by(headline: ad[0], url: ad[1], copy: ad[2])
-        @search_ad = SearchAd.new(search_query: @search_query, ad: returned_ad)
-        @search_ad.save
+        @ad_result = AdResult.new(result_group: @result_group, ad: returned_ad)
+        @ad_result.save
       end
       redirect_to @search_query
     else

@@ -4,10 +4,10 @@ class SearchQuery < ActiveRecord::Base
 
   validates_presence_of :terms
 
-  has_many :search_ads,
+  has_many :result_groups,
     dependent: :destroy
-  has_many :ads,
-    through: :search_ads
+  has_many :ad_results,
+    through: :result_groups
 
   def parse_ads
     search_url = 'https://www.google.com/search?q=' + terms.gsub(' ', '+')

@@ -7,8 +7,8 @@ describe Ad do
     it { should validate_presence_of :url }
     it { should validate_presence_of :copy }
 
-    it { should have_many(:search_ads).dependent(:destroy) }
-    it { should have_many(:search_queries).through(:search_ads) }
+    it { should have_many(:ad_results).dependent(:destroy) }
+    it { should have_many(:result_groups).through(:ad_results) }
   end
 
   describe 'database' do

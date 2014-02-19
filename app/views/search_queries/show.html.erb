@@ -11,12 +11,14 @@
   </thead>
 
   <tbody>
-    <% @search_query.ads.each do |ad| %>
-      <tr>
-        <td><%= ad.headline %></td>
-        <td><%= ad.url %></td>
-        <td><%= ad.copy %></td>
-      </tr>
+    <% @search_query.result_groups.each do |group| %>
+      <% group.ads.each do |ad| %>
+        <tr>
+          <td><%= ad.headline %></td>
+          <td><%= ad.url %></td>
+          <td><%= ad.copy %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
