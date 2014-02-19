@@ -33,4 +33,12 @@ feature 'User submits a search query', %Q{
       expect(page).to have_content('www.')
     end
   end
+
+  scenario 'user submits blank query' do
+    visit root_path
+    click_link 'New Search Query'
+    click_button 'Search'
+
+    expect(page).to have_content("Terms can't be blank")
+  end
 end
