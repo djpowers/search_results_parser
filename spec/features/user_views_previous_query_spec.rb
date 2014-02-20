@@ -14,6 +14,8 @@ feature 'User views previous search query', %Q{
 
     visit root_path
     click_link 'View Previous Search Results'
+    expect(page).to have_content('1')
+
     click_link 'huggies diaper coupons'
     expect(page).to have_content('Coupon')
     expect(page).to have_content('www.')

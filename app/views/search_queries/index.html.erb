@@ -1,3 +1,5 @@
+<%= link_to 'Home', root_path %>
+
 <table>
   <thead>
     <tr>
@@ -10,7 +12,7 @@
     <% @search_queries.each do |query| %>
       <tr>
         <td><%= link_to "#{query.terms}", search_query_path(query) %></td>
-        <td><%= SearchQuery.where(terms: query.terms).count %></td>
+        <td><%= query.result_groups.count %></td>
       </tr>
     <% end %>
   </tbody>
